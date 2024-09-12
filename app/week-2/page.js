@@ -10,9 +10,7 @@ export default function Page() {
         <li>Oranges</li>
       </ul>
       <p>
-        <Link href="/week-2">
-          <a>Go to Week 2 Page</a>
-        </Link>
+        <Link href="/week-2">Go to Week 2 Page</Link>
       </p>
     </main>
   );
