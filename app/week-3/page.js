@@ -31,18 +31,18 @@ export default function Page() {
             age={dog1.age} 
             colour={dog1.colour} 
             />
-            <Dog>
+            <Dog
             name={dog2.name}
             breed={dog2.breed}
             age={dog2.age}
             colour={dog2.colour}
-            </Dog>
-            <Dog>
+            />
+            <Dog
             name={dog3.name}
             breed={dog3.breed}
             age={dog3.age}
             colour={dog3.colour}
-            </Dog>
+            />
         </main>
     );
 
