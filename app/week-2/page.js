@@ -1,4 +1,4 @@
-"use client";
+
 
 import StudentInfo from './student-info';   
 
