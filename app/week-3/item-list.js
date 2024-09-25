@@ -75,7 +75,7 @@ export default function ItemList() {
 
     return(
         <main>
-            <h2 className='font-bold text-violet-800 text-3xl ml-7 mb-15'>Shopping List</h2>
+            <h2 className='font-bold text-violet-800 text-3xl ml-7 mb-15 pt-4'>Shopping List</h2>
             <Item 
             name={item1.name} 
             quantity={item1.quantity} 
