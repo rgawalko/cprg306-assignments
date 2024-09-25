@@ -10,8 +10,11 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        blueberry: '#4B0082',
       },
     },
   },
+  variants: {},
   plugins: [],
+  
 };
