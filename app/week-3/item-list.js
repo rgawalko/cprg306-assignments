@@ -75,7 +75,7 @@ export default function ItemList() {
 
     return(
         <main className='pt-0.5'>
-            <h2 className='font-bold text-gray-100 text-3xl mb-6 mt-6 pt-4 bg-violet-800 p-4 ml-11 rounded-lg shadow-lg w-60'>Shopping List</h2>
+            <h2 className='font-bold text-gray-100 text-3xl mt-6 pt-4 bg-violet-800 p-4 ml-11 rounded-lg shadow-lg w-60'>Shopping List</h2>
             <Item 
             name={item1.name} 
             quantity={item1.quantity} 
@@ -131,7 +131,7 @@ export default function ItemList() {
             quantity={item11.quantity} 
             category={item11.category}
             />
-            <Item 
+            <Item  
             name={item12.name} 
             quantity={item12.quantity} 
             category={item12.category}
