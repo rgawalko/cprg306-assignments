@@ -8,7 +8,9 @@ export default function DogForm() {
     const [age, setAge] = useState(0);
 
     const handleNameChange = (event) => {
-        setName(event.target.value);
+        let name = event.target.value;
+        name = name.replace(/[^a-zA-Z\s]/g, "");
+        setName(name);
     };
     return (
         <div className="m-2">
@@ -20,10 +22,31 @@ export default function DogForm() {
                 type="text"
                 value={name}
                 onChange={(event) => handleNameChange(event) }
-                className='border-1 border-black m-2'
+                className='border border-black m-2'
+                />
+                <label htmlFor="breed">Breed:</label>
+                <input
+                id="breed"
+                type="text"
+                value={breed}
+                onChange={(event) => setBreed(event.target.value) }
+                className='border border-black m-2'
+                />
+                <label htmlFor="age">Age:</label>
+                <input
+                id="age"
+                type="number"
+                value={age}
+                onChange={(event) => setAge(event.target.value) }
+                className='border border-black m-2'
                 />
             </form>
-            <div className="text-lg">{name}</div>
+
+            <div className="text-lg">
+                <p>Name: {name}</p>
+                <p>Breed: {breed}</p>
+                <p>Age: {age}</p>
+            </div>
         </div>
     )
 }

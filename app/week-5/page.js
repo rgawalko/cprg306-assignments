@@ -1,4 +1,4 @@
-import DogForm from ".dog-form.js";
+import DogForm from "./dog-form";
 
 export default function Page() {
     return (
