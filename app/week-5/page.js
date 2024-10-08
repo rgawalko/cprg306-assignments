@@ -1,11 +1,9 @@
-
+import NewItem from "./new-item";
 
 export default function Page() {
     return (
-        <main className="m-4">
-            
-         
-
-        </main>
-    )
+        <div>
+            <NewItem />
+        </div>
+    );
 }
