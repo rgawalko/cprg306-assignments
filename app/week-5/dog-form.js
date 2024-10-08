@@ -12,10 +12,37 @@ export default function DogForm() {
         name = name.replace(/[^a-zA-Z\s]/g, "");
         setName(name);
     };
+
+    const handleBreedChange = (event) => {
+        let breed = event.target.value;
+        breed = breed.replace(/[^a-zA-Z\s]/g, "");
+        setBreed(breed);
+    };
+
+    const handleAgeChange = (event) => {
+        let age = event.target.value;
+        age = parseInt(age);
+        if (isNaN(age)) {
+            age = 0;
+        }
+        if (age < 0) {
+            age = 0;
+        }
+        setAge(age);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        let dog = { name, breed, age};
+        console.log(dog);
+    }
+
+
+
     return (
         <div className="m-2">
             <h2 className="text-2xl">Add a Dog</h2>
-            <form className="m-2">
+            <form className="m-2" onSubmit ={(event) => handleSubmit(event)}>
                 <label htmlFor="name">Name:</label>
                 <input
                 id="name"
@@ -29,7 +56,7 @@ export default function DogForm() {
                 id="breed"
                 type="text"
                 value={breed}
-                onChange={(event) => setBreed(event.target.value) }
+                onChange={(event) => handleBreedChange(event) }
                 className='border border-black m-2'
                 />
                 <label htmlFor="age">Age:</label>
@@ -37,13 +64,18 @@ export default function DogForm() {
                 id="age"
                 type="number"
                 value={age}
-                onChange={(event) => setAge(event.target.value) }
+                onChange={(event) => handleAgeChange(event) }
                 className='border border-black m-2'
                 />
+                <input
+                type="submit"
+                value="Add Dog"
+                className="m-2 bg-blue-500
+                hover:bg-blue-700"
+                />
             </form>
-
             <div className="text-lg">
-                <p>Name: {name}</p>
+                <p>Name: {name.length >=3 ? name : "Name too short" }</p>
                 <p>Breed: {breed}</p>
                 <p>Age: {age}</p>
             </div>
