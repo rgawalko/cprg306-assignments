@@ -35,6 +35,9 @@ export default function NewItem() {
         let item_obj = { name, quantity, category };
         console.log(item_obj);
         alert(`Name: ${name}, Quantity: ${quantity}, Category: ${category}`);
+        setName('');
+        setQuantity('');
+        setCategory('');
     };
 
     return (
