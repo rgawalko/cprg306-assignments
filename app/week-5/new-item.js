@@ -59,7 +59,7 @@ export default function NewItem() {
 
 
                 <div className="my-5 ml-14 w-48 bg-violet-500 rounded-custom-md flex flex-col items-center justify-center p-4">
-                        <p className="font-bold text-gray-100 mb-4"> Quantity: {quantity} </p>
+                        <p className="font-bold text-gray-100 mb-4"> {quantity} </p>
                         <div className="flex space-x-2">
                         <button 
                             onClick={increment} 
@@ -97,8 +97,15 @@ export default function NewItem() {
                 value="Add Item"
                 className="m-2 bg-blue-500 hover:bg-blue-700"
                 />
-            </form>    
-        </div>    
+            </form>
+            <div className="text-lg">
+                <p>Name: {name}</p>
+                <p>Quantity: {quantity}</p>
+                <p>Category: {category}</p>
+
+            </div>    
+        </div>
+   
     );
 };
                 

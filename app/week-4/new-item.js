@@ -19,7 +19,7 @@ export default function NewItem() {
 
     return (
         <div className="my-5 ml-14 w-48 bg-violet-500 rounded-custom-md flex flex-col items-center justify-center p-4">
-            <p className="font-bold text-gray-100 mb-4"> Quantity: {quantity} </p>
+            <p className="font-bold text-gray-100 mb-4">{quantity}</p>
             <div className="flex space-x-2">
                 <button 
                     onClick={increment} 
