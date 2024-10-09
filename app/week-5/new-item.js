@@ -54,6 +54,7 @@ export default function NewItem() {
                 value={name}
                 onChange={(event) => handleNameChange(event)}
                 className= 'border border-black m-2'
+                required
                 />
 
 
