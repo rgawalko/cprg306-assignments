@@ -1,83 +1,49 @@
-import itemsJson from ".items.json";
-
+"use client";
+import { useState } from "react";
+import itemsJson from "./items.json";
+import Item from './item.js';
 
 export default function ItemList() {
-
     const [sortBy, setSortBy] = useState("name");
     let items = [...itemsJson];  // Shallow copy of itemsJson
-    items.sort((a, b) => a.name.localeCompare(b.name));
 
+    // Sort items based on the sortBy state
+    if (sortBy === "name") {
+        items.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === "category") {
+        items.sort((a, b) => a.category.localeCompare(b.category));
+    }
 
-    return(
+    return (
         <main className='pt-0.5'>
             <h2 className='font-bold text-gray-100 text-3xl mt-6 pt-4 bg-violet-800 p-4 ml-11 rounded-lg shadow-lg w-60'>Shopping List</h2>
-            <Item 
-            name={item1.name} 
-            quantity={item1.quantity} 
-            category={item1.category}
-            />
-            <Item 
-            name={item2.name} 
-            quantity={item2.quantity} 
-            category={item2.category}
-            />
-            <Item 
-            name={item3.name} 
-            quantity={item3.quantity} 
-            category={item3.category}
-            />
-            <Item 
-            name={item4.name} 
-            quantity={item4.quantity} 
-            category={item4.category}
-            />
-            <Item 
-            name={item5.name} 
-            quantity={item5.quantity} 
-            category={item5.category}
-            />
-            <Item 
-            name={item6.name} 
-            quantity={item6.quantity} 
-            category={item6.category}
-            />
-            <Item 
-            name={item7.name} 
-            quantity={item7.quantity} 
-            category={item7.category}
-            />
-            <Item 
-            name={item8.name} 
-            quantity={item8.quantity} 
-            category={item8.category}
-            />
-            <Item 
-            name={item9.name} 
-            quantity={item9.quantity} 
-            category={item9.category}
-            />
-            <Item 
-            name={item10.name} 
-            quantity={item10.quantity} 
-            category={item10.category}
-            />
-            <Item 
-            name={item11.name} 
-            quantity={item11.quantity} 
-            category={item11.category}
-            />
-            <Item  
-            name={item12.name} 
-            quantity={item12.quantity} 
-            category={item12.category}
-            />
             
+            {/* Buttons for selecting sorting criteria */}
+            <div className='ml-11 mb-4'>
+                <button 
+                    className={`mr-2 ${sortBy === "name" ? "bg-blue-500 text-white" : "bg-gray-200"}`} 
+                    onClick={() => setSortBy("name")}
+                >
+                    Sort by Name
+                </button>
+                <button 
+                    className={`${sortBy === "category" ? "bg-blue-500 text-white" : "bg-gray-200"}`} 
+                    onClick={() => setSortBy("category")}
+                >
+                    Sort by Category
+                </button>
+            </div>
 
-            
-
-
+            <ul>
+                {items.map((item) => (
+                    <Item 
+                        key={item.id}
+                        name={item.name} 
+                        quantity={item.quantity} 
+                        category={item.category}
+                    />
+                ))}
+            </ul>
         </main>
-
     );
-
 }
