@@ -1,77 +1,12 @@
-import Item from './item.js';
+import itemsJson from ".items.json";
+
 
 export default function ItemList() {
-    const item1 = {
-        name: "milk, 4L 🥛",
-        quantity: 1,
-        category: "dairy",
-    };
 
-    const item2 = {
-        name: "Bread 🍞",
-        quantity: 2,
-        category: "bakery",
-    };
+    const [sortBy, setSortBy] = useState("name");
+    let items = [...itemsJson];  // Shallow copy of itemsJson
+    items.sort((a, b) => a.name.localeCompare(b.name));
 
-    const item3 = {
-        name: "Eggs, dozen 🥚",
-        quantity: 2,
-        category: "dairy",
-    };
-
-    const item4 = {
-        name: "bananas🍌",
-        quantity: 6,
-        category: "produce",
-    };
-
-    const item5 = {
-        name: "broccoli 🥦",
-        quantity: 3,
-        category: "produce",
-    };
-
-    const item6 = {
-        name: "chicken breasts, 1 kg 🍗",
-        quantity: 1,
-        category: "meat",
-    };
-
-    const item7 = {
-        name: "pasta sauce 🍝",
-        quantity: 3,
-        category: "canned goods",
-    };
-
-    const item8 = {
-        name: "spaghetti, 454g 🍝",
-        quantity: 2,
-        category: "dry goods",
-    };
-
-    const item9 = {
-        name: "toilet paper, pack of 12 🧻",
-        quantity: 1,
-        category: "household",
-    };
-
-    const item10 = {
-        name: "paper towels, 6 pack",
-        quantity: 1,
-        category: "household",
-    };
-
-    const item11 = {
-        name: "dish soap 🍽️",
-        quantity: 1,
-        category: "household",
-    };
-
-    const item12 = {
-        name: "hand soap 🧼",
-        quantity: 4,
-        category: "household",
-    };
 
     return(
         <main className='pt-0.5'>

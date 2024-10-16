@@ -1,4 +1,7 @@
+"use client";
+
 import ItemList from "./item-list";
+import { useState } from "react";
 
 export default function Page() {
     return (
