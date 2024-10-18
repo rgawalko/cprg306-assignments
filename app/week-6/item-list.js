@@ -13,21 +13,21 @@ export default function ItemList() {
     } else if (sortBy === "category") {
         items.sort((a, b) => a.category.localeCompare(b.category));
     }
-
+    
     return (
         <main className='pt-0.5'>
             <h2 className='font-bold text-gray-100 text-3xl mt-6 pt-4 bg-violet-800 p-4 ml-11 rounded-lg shadow-lg w-60'>Shopping List</h2>
             
             {/* Buttons for selecting sorting criteria */}
-            <div className='ml-11 mb-4'>
+            <div className='ml-11 mt-5 mb-4'>
                 <button 
-                    className={`mr-2 ${sortBy === "name" ? "bg-blue-500 text-white" : "bg-gray-200"}`} 
+                    className={`mr-2 px-4 py-2 rounded ${sortBy === "name" ? "bg-blue-500 text-white" : "bg-gray-200 hover:bg-blue-700 hover:text-white"} transition duration-300`} 
                     onClick={() => setSortBy("name")}
                 >
                     Sort by Name
                 </button>
                 <button 
-                    className={`${sortBy === "category" ? "bg-blue-500 text-white" : "bg-gray-200"}`} 
+                    className={`px-4 py-2 rounded ${sortBy === "category" ? "bg-blue-500 text-white" : "bg-gray-200 hover:bg-blue-700 hover:text-white"} transition duration-300`} 
                     onClick={() => setSortBy("category")}
                 >
                     Sort by Category
