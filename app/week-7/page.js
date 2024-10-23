@@ -7,6 +7,17 @@ import { useState } from "react";
 
 
 export default function Page() {
+    const [items, newItem] = useState(itemsData);
+
+    const handleAddItem = (newItem) => {
+        setItems([...items, newItem])
+    }
+
+    const handleDelete = (id) => {
+        const updatedItems = items.filter((item) => item.id !== id);
+        setItems(updatedItems)
+    }
+
     return (
         <div className="bg-gray-200 min-h-screen pb-6">
             <ItemList />
