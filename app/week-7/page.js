@@ -20,7 +20,8 @@ export default function Page() {
 
     return (
         <div className="bg-gray-200 min-h-screen pb-6">
-            <ItemList />
+            <ItemList items = {items} onDelete = {handleDelete} />
+            <NewItem onAddItem = {handleAddItem} />
         </div>
     ); 
 }
