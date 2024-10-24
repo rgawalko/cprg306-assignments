@@ -17,13 +17,14 @@ export default function Page() {
     };
 
     return (
-        <div className="bg-gray-200 min-h-screen flex">
-            <div className="flex-1 p-4">
+        <div className="bg-gray-200 min-h-screen flex p-4 space-x-4">
+            <div className="flex-1">
                 <ItemList items={items} onDelete={handleDelete} />
             </div>
-            <div className="w-1/4 p-4 flex justify-center items-start">
+            <div className="flex-1">
                 <NewItem onAddItem={handleAddItem} />
             </div>
         </div>
     );
 }
+
