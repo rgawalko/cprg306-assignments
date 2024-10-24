@@ -41,7 +41,7 @@ export default function NewItem({onAddItem}) {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="flex items-center min-h-screen">
             <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm w-72">
                 <h2 className="text-xl font-bold mb-2 text-center">Add An Item</h2>
                 <form className="m-1" onSubmit={handleSubmit}>
