@@ -7,15 +7,15 @@ import { useState } from "react";
 
 
 export default function Page() {
-    const [items, newItem] = useState(itemsData);
+    const [items, setItems] = useState(itemsData);
 
     const handleAddItem = (newItem) => {
-        setItems([...items, newItem])
+        setItems([...items, newItem]);
     }
 
     const handleDelete = (id) => {
         const updatedItems = items.filter((item) => item.id !== id);
-        setItems(updatedItems)
+        setItems(updatedItems);
     }
 
     return (
