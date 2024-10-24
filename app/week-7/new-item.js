@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({onAddItem}) {
     const [quantity, setQuantity] = useState(1);
     const [name, setName] = useState("");
     const [category, setCategory] = useState("produce");
@@ -32,11 +32,11 @@ export default function NewItem() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        let item_obj = { name, quantity, category };
-        console.log(item_obj);
-        alert(`Name: ${name}, Quantity: ${quantity}, Category: ${category}`);
+        const newId = Array.from({length: 18}, () => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.charAt(Math.floor(Math.random() * 62))).join('');
+        const newItem = { id: newId, name, quantity, category };
+        onAddItem(newItem);
         setName('');
-        setQuantity('');
+        setQuantity(0);
         setCategory('');
     };
 
