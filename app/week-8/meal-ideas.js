@@ -35,20 +35,19 @@ export default function MealIdeas({ ingredient }) {
     useEffect(() => {
         loadMealIdeas();
     }, [ingredient]);
-
+    
     return (
         <div>
             <h1>Meal Ideas</h1>
-            {error && <p className="error-message">{error}</p>}
+            {error && <p className="text-red-500">{error}</p>}
             <ul>
                 {meals.map((meal) => (
-                    <li key={meal.idMeal} className="meal-item">
-                        <h2>{meal.strMeal}</h2>
-                        <img 
+                    <li key={meal.idMeal} className="meal-item mb-4">
+                        <h2 className="text-lg font-bold">{meal.strMeal}</h2>
+                        <img
                             src={meal.strMealThumb} 
                             alt={meal.strMeal} 
-                            className="meal-image" 
-                            style={{ width: '100px', height: '100px', objectFit: 'cover' }} 
+                            className="w-24 h-24 object-cover" 
                         />
                     </li>
                 ))}
