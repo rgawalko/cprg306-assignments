@@ -27,7 +27,9 @@ export default function MealIdeas({ ingredient }) {
     };
 
     const loadMealIdeas = () => {
-        fetchMealIdeas(ingredient);
+        if (ingredient) {
+            fetchMealIdeas(ingredient);
+        }
     };
 
     useEffect(() => {
@@ -42,7 +44,12 @@ export default function MealIdeas({ ingredient }) {
                 {meals.map((meal) => (
                     <li key={meal.idMeal} className="meal-item">
                         <h2>{meal.strMeal}</h2>
-                        <img src={meal.strMealThumb} alt={meal.strMeal} className="meal-image" />
+                        <img 
+                            src={meal.strMealThumb} 
+                            alt={meal.strMeal} 
+                            className="meal-image" 
+                            style={{ width: '100px', height: '100px', objectFit: 'cover' }} 
+                        />
                     </li>
                 ))}
             </ul>
