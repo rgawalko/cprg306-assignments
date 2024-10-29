@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Item from './item.js';
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState("name");
     let itemsCopy = [...items];  // Shallow copy of items
 
@@ -67,6 +67,7 @@ export default function ItemList({ items }) {
                                         name={item.name} 
                                         quantity={item.quantity} 
                                         category={item.category}
+                                        onSelect={() => onItemSelect(item)}
                                     />
                                 ))}
                             </ul>
@@ -79,6 +80,7 @@ export default function ItemList({ items }) {
                             name={item.name} 
                             quantity={item.quantity} 
                             category={item.category}
+                            onSelect={() => onItemSelect(item)}
                         />
                     ))
                 )}
