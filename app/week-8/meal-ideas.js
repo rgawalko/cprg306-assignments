@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function MealIdeas({ ingredient }) {
     const [meals, setMeals] = useState([]);
+    const [error, setError] = useState(null);
 
     const fetchMealIdeas = async (ingredient) => {
         try {
@@ -12,9 +13,16 @@ export default function MealIdeas({ ingredient }) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            setMeals(data.meals);
+            if (data.meals) {
+                setMeals(data.meals);
+                setError(null); // Clear any previous error
+            } else {
+                setMeals([]);
+                setError('No meals found for the specified ingredient.');
+            }
         } catch (error) {
             console.error('Fetch error:', error);
+            setError('An error occurred while fetching meal ideas.');
         }
     };
 
@@ -29,6 +37,7 @@ export default function MealIdeas({ ingredient }) {
     return (
         <div>
             <h1>Meal Ideas</h1>
+            {error && <p className="error-message">{error}</p>}
             <ul>
                 {meals.map((meal) => (
                     <li key={meal.idMeal} className="meal-item">
