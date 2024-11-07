@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useEffect } from "react";
 import Link from "next/link";
@@ -15,6 +15,13 @@ export default function Page() {
         await firebaseSignOut();
     };
 
+    useEffect(() => {
+        if (user) {
+            // Redirect to the shopping list page after login
+            window.location.href = "/week-9/shopping-list";
+        }
+    }, [user]);
+
     return (
         <div className="bg-gray-200 min-h-screen flex p-4 space-x-4">
             <div>
@@ -22,7 +29,7 @@ export default function Page() {
                     <div>
                         <p>Welcome, {user.displayName}!</p>
                         <button onClick={logout}>Sign Out</button>
-                        <Link href="/week-9/shopping-list/page" className="text-blue-500 underline">
+                        <Link href="/week-9/shopping-list" className="text-blue-500 underline">
                             Go to Shopping List
                         </Link>
                     </div>
