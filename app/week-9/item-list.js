@@ -31,7 +31,7 @@ export default function ItemList({ items, onItemSelect }) {
 
     return (
         <main className='pt-0.5'>
-            <h2 className='font-bold text-gray-100 text-3xl mt-6 pt-4 bg-violet-800 p-4 ml-11 rounded-lg shadow-lg w-60'>Shopping List</h2>
+            <h2 className='font-bold text-gray-100 text-3xl mt-0 pt-4 bg-violet-800 p-4 ml-11 rounded-lg shadow-lg w-60'>Shopping List</h2>
             
             {/* Buttons for selecting sorting criteria */}
             <div className='ml-11 mt-5 mb-4'>
