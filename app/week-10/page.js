@@ -18,7 +18,7 @@ export default function Page() {
     useEffect(() => {
         if (user) {
             // Redirect to the shopping list page after login
-            window.location.href = "/week-9/shopping-list";
+            window.location.href = "/week-10/shopping-list";
         }
     }, [user]);
 
@@ -29,7 +29,7 @@ export default function Page() {
                     <div>
                         <p>Welcome, {user.displayName}!</p>
                         <button onClick={logout}>Sign Out</button>
-                        <Link href="/week-9/shopping-list" className="text-blue-500 underline">
+                        <Link href="/week-10/shopping-list" className="text-blue-500 underline">
                             Go to Shopping List
                         </Link>
                     </div>
