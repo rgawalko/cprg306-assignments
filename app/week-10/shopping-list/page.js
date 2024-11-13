@@ -25,20 +25,21 @@ export default function Page() {
         const itemsData = await getItems(user.uid);
         setItems(itemsData);
     };
-
+    
     const login = async () => {
         await gitHubSignIn();
     };
-
+    
     const logout = async () => {
         await firebaseSignOut();
         window.location.href = "/week-9";
     };
-
-    const handleAddItem = (newItem) => {
-        setItems([...items, newItem]);
+    
+    const handleAddItem = async (newItem) => {
+        const addedItem = await addItem(user.uid, newItem);
+        setItems([...items, { ...newItem, id: addedItem.id }]);
     };
-
+    
     return (
         <div className="bg-gray-200 min-h-screen flex flex-col p-2">
             <div className="flex justify-end mb-2">
@@ -49,7 +50,6 @@ export default function Page() {
             <div className="flex-1 flex space-x-4 items-start">
                 <ItemList items={items} onDelete={handleDelete} onItemSelect={handleItemSelect} />
                 <NewItem onAddItem={handleAddItem} className="w-64" />
-                <MealIdeas ingredient={selectedItemName} />
             </div>
         </div>
     );
