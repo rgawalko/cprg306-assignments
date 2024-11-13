@@ -1,17 +1,30 @@
 "use client";
 
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ItemList from "../item-list";
 import NewItem from "../new-item";
 import MealIdeas from "../meal-ideas";
-import itemsData from "../items.json";
+import getItems from "../_services/shopping-list-service";
+import addItem from "../_services/shopping-list-service";
 import { useUserAuth } from "../_utils/auth-context";
 
 export default function Page() {
-    const [items, setItems] = useState(itemsData);
+    const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState("");
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+
+    useEffect(() => {
+        if (user) {
+            loadItems();
+        }
+    }, [user]);
+
+    const loadItems = async () => {
+        const itemsData = await getItems(user.uid);
+        setItems(itemsData);
+    };
 
     const login = async () => {
         await gitHubSignIn();
@@ -24,17 +37,7 @@ export default function Page() {
 
     const handleAddItem = (newItem) => {
         setItems([...items, newItem]);
-    };
-
-    const handleDelete = (id) => {
-        const updatedItems = items.filter((item) => item.id !== id);
-        setItems(updatedItems);
-    };
-
-    const handleItemSelect = (item) => {
-        const cleanedName = item.name.split(',')[0].trim().replace(/[^a-zA-Z\s]/g, '');
-        setSelectedItemName(cleanedName);
-    };
+    }
 
     return (
         <div className="bg-gray-200 min-h-screen flex flex-col p-2">
