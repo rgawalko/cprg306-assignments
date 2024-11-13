@@ -37,7 +37,7 @@ export default function Page() {
 
     const handleAddItem = (newItem) => {
         setItems([...items, newItem]);
-    }
+    };
 
     return (
         <div className="bg-gray-200 min-h-screen flex flex-col p-2">
